@@ -19,8 +19,7 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'app/public/theme/styles/style.css': 'app/public/theme/styles/sass/style.scss',
-					'app/public/dashboard/styles/admin.css': 'app/public/dashboard/styles/sass/admin.scss'
+					'public/css/main.css': 'public/css/sass/main.scss'
 				}
 			}	
 		},
@@ -46,7 +45,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			stylesheets: {
-				files: ['./app/public/**/*.scss', './app/public/**/_*.scss'],
+				files: ['public/css/**/*.scss'],
 				tasks: ['compileSass'],
 				options: {
 					livereload: true
