@@ -934,3 +934,47 @@
 [Sun Dec 08 14:09:08 2013] [error] [client 127.0.0.1] PHP  11. call_user_func_array() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:138, referer: http://thelocalsguideto/place/newyork
 [Sun Dec 08 14:09:08 2013] [error] [client 127.0.0.1] PHP  12. PlaceController->showPlace() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:138, referer: http://thelocalsguideto/place/newyork
 [Sun Dec 08 14:09:08 2013] [error] [client 127.0.0.1] PHP  13. TLGT\\webservices\\FacebookWebservice->getContentByCoordinates() /Users/Matthis/Sites/thelocalsguideto/app/controllers/PlaceController.php:45, referer: http://thelocalsguideto/place/newyork
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP Fatal error:  Call to private method TLGT\\webservices\\TwitterWebservice::getAccessToken() from context 'PlaceController' in /Users/Matthis/Sites/thelocalsguideto/app/controllers/PlaceController.php on line 47
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP Stack trace:
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP   1. {main}() /Users/Matthis/Sites/thelocalsguideto/public/index.php:0
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP   2. Illuminate\\Foundation\\Application->run() /Users/Matthis/Sites/thelocalsguideto/public/index.php:49
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP   3. Illuminate\\Foundation\\Application->dispatch() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:552
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP   4. Illuminate\\Routing\\Router->dispatch() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:576
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP   5. Illuminate\\Routing\\Route->run() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Router.php:1016
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP   6. Illuminate\\Routing\\Route->callCallable() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Route.php:47
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP   7. call_user_func_array() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Route.php:80
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP   8. Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Route.php:80
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP   9. Illuminate\\Routing\\Controllers\\Controller->callAction() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Router.php:985
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP  10. Illuminate\\Routing\\Controllers\\Controller->callMethod() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:115
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP  11. call_user_func_array() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:138
+[Sun Dec 08 16:28:39 2013] [error] [client 127.0.0.1] PHP  12. PlaceController->showPlace() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:138
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected 'try' (T_TRY) in /Users/Matthis/Sites/thelocalsguideto/app/lib/TLGT/webservices/TwitterWebservice.php on line 11
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP Stack trace:
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP   1. {main}() /Users/Matthis/Sites/thelocalsguideto/public/index.php:0
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP   2. Illuminate\\Foundation\\Application->run() /Users/Matthis/Sites/thelocalsguideto/public/index.php:49
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP   3. Illuminate\\Foundation\\Application->dispatch() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:552
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP   4. Illuminate\\Routing\\Router->dispatch() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:576
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP   5. Illuminate\\Routing\\Route->run() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Router.php:1016
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP   6. Illuminate\\Routing\\Route->callCallable() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Route.php:47
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP   7. call_user_func_array() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Route.php:80
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP   8. Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Route.php:80
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP   9. Illuminate\\Routing\\Controllers\\Controller->callAction() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Router.php:985
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP  10. Illuminate\\Routing\\Controllers\\Controller->callMethod() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:115
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP  11. call_user_func_array() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:138
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP  12. PlaceController->showPlace() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:138
+[Sun Dec 08 17:34:39 2013] [error] [client 127.0.0.1] PHP  13. Composer\\Autoload\\ClassLoader->loadClass() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:0
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP Fatal error:  Class 'TLGT\\webservices\\TLGT\\models\\Tweet' not found in /Users/Matthis/Sites/thelocalsguideto/app/lib/TLGT/webservices/TwitterWebservice.php on line 31
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP Stack trace:
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP   1. {main}() /Users/Matthis/Sites/thelocalsguideto/public/index.php:0
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP   2. Illuminate\\Foundation\\Application->run() /Users/Matthis/Sites/thelocalsguideto/public/index.php:49
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP   3. Illuminate\\Foundation\\Application->dispatch() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:552
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP   4. Illuminate\\Routing\\Router->dispatch() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:576
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP   5. Illuminate\\Routing\\Route->run() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Router.php:1016
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP   6. Illuminate\\Routing\\Route->callCallable() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Route.php:47
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP   7. call_user_func_array() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Route.php:80
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP   8. Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Route.php:80
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP   9. Illuminate\\Routing\\Controllers\\Controller->callAction() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Router.php:985
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP  10. Illuminate\\Routing\\Controllers\\Controller->callMethod() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:115
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP  11. call_user_func_array() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:138
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP  12. PlaceController->showPlace() /Users/Matthis/Sites/thelocalsguideto/vendor/laravel/framework/src/Illuminate/Routing/Controllers/Controller.php:138
+[Sun Dec 08 17:58:51 2013] [error] [client 127.0.0.1] PHP  13. TLGT\\webservices\\TwitterWebservice->getTweetsByLocation() /Users/Matthis/Sites/thelocalsguideto/app/controllers/PlaceController.php:47

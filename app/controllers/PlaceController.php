@@ -13,7 +13,7 @@ class PlaceController extends BaseController {
 	 */
 	private $instagramWebservice;
 
-	private $facebookWebservice;
+	private $twitterWebservice;
 
 	/**
 	 * @param TLGT\models\Search                   $search
@@ -21,10 +21,10 @@ class PlaceController extends BaseController {
 	 */
 	public function __construct(TLGT\models\Search $search,
 								TLGT\webservices\InstagramWebservice $instagramWebservice,
-								TLGT\webservices\FacebookWebservice $facebookWebservice) {
+								TLGT\webservices\TwitterWebservice $twitterWebservice) {
 		$this->search = $search;
 		$this->instagramWebservice = $instagramWebservice;
-		$this->facebookWebservice = $facebookWebservice;
+		$this->twitterWebservice = $twitterWebservice;
 	}
 
 	public function index()
@@ -41,9 +41,9 @@ class PlaceController extends BaseController {
 	}
 
 	public function showPlace($place) {
-		$instagram = $this->instagramWebservice->getImagesByTagName($place);
-		$facebookMeta = $this->facebookWebservice->getContentByCoordinates($place);
+		$instagrams = $this->instagramWebservice->getImagesByTagName($place);
+		$tweets = $this->twitterWebservice->getTweetsByLocation($place);
 
-		return View::make('place', ['instagrams' => $instagram]);
+		return View::make('place', ['instagrams' => $instagrams, 'tweets' => $tweets]);
 	}
 }
