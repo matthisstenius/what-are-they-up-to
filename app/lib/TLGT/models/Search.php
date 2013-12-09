@@ -3,8 +3,12 @@
 namespace TLGT\models;
 
 class Search {
-	public static $rules = ['tag' => 'required'];
-	
+	public static $rules = ['term' => 'required'];
+
+	/**
+	 * @var array
+	 */
+	public $errors;
 	/**
 	 * Validates input
 	 * @return boolean

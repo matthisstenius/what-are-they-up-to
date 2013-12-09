@@ -12,6 +12,8 @@
 	@if (count($tweets) > 0)
 		@foreach($tweets as $tweet)
 			<p>{{$tweet->getText()}}</p>
+			<p>{{$tweet->getName()}}</p>
+			<p>{{$tweet->getCreated()}}</p>
 		@endforeach
 	@else
 		<p>No tweets found</p>

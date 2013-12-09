@@ -14,3 +14,4 @@
 Route::get('/', 'HomeController@index');
 Route::get('/place/{place}', 'PlaceController@showPlace');
 Route::post('/place', 'PlaceController@getPlace');
+Route::post('/image/callback', 'CallbackController@imageCallback');

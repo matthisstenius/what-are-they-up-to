@@ -11,22 +11,31 @@ class TwitterWebservice extends RequestWrapper {
 	 * @param  string $place
 	 * @return array of \TLGT\models\Tweet
 	 */
-	public function getTweetsByLocation($place) {
-		$locationWebservice = new LocationWebservice($place);
-		$coordinates = $locationWebservice->getCoordinates();
-		$coordinateString = $coordinates['lat'] . "," . $coordinates['lng'] . ",2km";
+	public function getTweetsByLocation(\TLGT\models\Location $location) {
+		if ($location->coordinatesExist()) {
+			$coordinateString = $location->getLatitude() . ',' . $location->getLongitude() . ',2km';
 
-		$query = http_build_query(
-			array(
-				'q' => urlencode($place),
-				'geocode' => $coordinateString,
-				'count' => '10'
-			)
-		);
+			$query = http_build_query(
+				array(
+					'q' => $location->getPlace(),
+					'geocode' => $coordinateString,
+					'count' => '10'
+				)
+			);			
+		}
+
+		else {
+			$query = http_build_query(
+				array(
+					'q' => urlencode($place),
+					'count' => '10'	
+				)
+			);
+		}
 
 		try {
 			$result = $this->request(self::$baseUri . $query, $this->getAccessToken());
-			
+
 			$fromJson = json_decode($result, true);
 
 			$tweets = [];

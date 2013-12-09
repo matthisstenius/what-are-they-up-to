@@ -9,7 +9,7 @@ class RequestWrapper {
 	 * @return mixed response from request
 	 * @throws Exception if response is not ok
 	 */
-	public function request($url, $authHeader = null) {
+	public function request($url, $authHeader = null, $method = null) {
 		$request = curl_init();
 		curl_setopt($request, CURLOPT_URL, $url);
 		curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
@@ -18,6 +18,10 @@ class RequestWrapper {
 			curl_setopt($request, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $authHeader));			
 		}
 		
+		if ($method) {
+			curl_setopt($request, CURLOPT_POST, true);
+		}
+
 		$response = curl_exec($request);
 
 		$statusCode = curl_getinfo($request, CURLINFO_HTTP_CODE);
