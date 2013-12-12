@@ -86,7 +86,6 @@ class PlaceController extends BaseController {
 			}
 		}
 
-		dd($instagrams);
 		$tweets = $this->twitterWebservice->getTweetsByLocation($location);
 
 		return View::make('place', ['instagrams' => $instagrams, 'tweets' => $tweets]);

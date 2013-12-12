@@ -17,7 +17,7 @@ class TwitterWebservice extends RequestWrapper {
 
 			$query = http_build_query(
 				array(
-					'q' => $location->getPlace(),
+					'q' => urlencode($location->getPlace()),
 					'geocode' => $coordinateString,
 					'count' => '10'
 				)

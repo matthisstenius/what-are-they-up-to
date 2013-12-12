@@ -15,3 +15,6 @@ Route::get('/', 'HomeController@index');
 Route::get('/place/{place}', 'PlaceController@showPlace');
 Route::post('/place', 'PlaceController@getPlace');
 Route::post('/image/callback', 'CallbackController@imageCallback');
+
+Route::get('/tweets/{search}', 'TwitterController@getTweets');
+Route::get('/instagrams/{search}', 'InstagramController@getInstagrams');
