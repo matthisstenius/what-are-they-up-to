@@ -6,13 +6,20 @@ class Instagram {
 	/**
 	 * @var array
 	 */
-	private $images;
+	public $images;
+
+	/**
+	 * @var array
+	 */
+	public $tags;
 
 	/**
 	 * @param array $images
+	 * @param string $text
 	 */
-	public function __construct($images) {
+	public function __construct($images, $tags) {
 		$this->images = $images;
+		$this->tags = $tags;
 	}
 
 	/**

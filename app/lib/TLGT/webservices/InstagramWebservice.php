@@ -26,10 +26,11 @@ class InstagramWebservice extends RequestWrapper {
 					break;
 				}
 
-				$instagrams[] = new \TLGT\models\Instagram($value['images']);;
+				$instagrams[] = new \TLGT\models\Instagram($value['images'], $value['tags']);;
 			}
 
 			//$this->startSubsceiption($place);
+			//\Cache::add('instagrams', $instagrams, 2);
 
 			return $instagrams;
 		}
@@ -38,34 +39,6 @@ class InstagramWebservice extends RequestWrapper {
 			throw $e;
 		}
 	}
-
-	// public function getUser($user) {
-	// 	$url = self::$baseUri . "users/search?q=" . $user . "&client_id=" . self::$clientID;
-
-	// 	try {
-	// 		$user = $response = $this->request($url);
-			
-	// 		$fromJson = json_decode($response, true);
-	// 		$this->getImagesByUser($fromJson['data'][0]['id']);
-	// 	}
-
-	// 	catch (\Exception $e) {
-	// 		dd($e->getMessage());
-	// 	}
-	// }
-
-	// public function getImagesByUser($userId) {
-	// 	$url = self::$baseUri . '/users/' . $userId  . "/media/recent/?client_id=" . self::$clientID;
-
-	// 	try {
-	// 		$response = $this->request($url);
-	// 		dd(json_decode($response));
-	// 	}
-
-	// 	catch (\Exception $e) {
-	// 		dd($e->getMessage());
-	// 	}
-	// }
 
 	/**
 	 * @todo Try this out on live server

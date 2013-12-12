@@ -3,11 +3,11 @@
 namespace TLGT\models;
 
 class Tweet {
-	private $created;
+	public $created;
 
-	private $text;
+	public $text;
 
-	private $name;	
+	public $name;	
 
 	public function __construct($created, $text, $name) {
 		$this->created = $created;

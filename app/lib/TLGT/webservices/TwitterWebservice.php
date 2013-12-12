@@ -27,7 +27,7 @@ class TwitterWebservice extends RequestWrapper {
 		else {
 			$query = http_build_query(
 				array(
-					'q' => urlencode($place),
+					'q' => urlencode($location->getPlace()),
 					'count' => '10'	
 				)
 			);

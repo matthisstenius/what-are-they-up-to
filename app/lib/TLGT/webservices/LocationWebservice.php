@@ -18,15 +18,21 @@ class LocationWebservice extends RequestWrapper {
 			$result = $this->request($url);
 			$fromJson = json_decode($result, true);
 
-			$longitude = null;
-			$latitude = null;
+			$location;
 
 			if ($fromJson['status'] != 'ZERO_RESULTS') {
 				$longitude = $fromJson['results'][0]['geometry']['location']['lng'];
 				$latitude = $fromJson['results'][0]['geometry']['location']['lat'];
+
+				$location = new \TLGT\models\Location($lookup, $longitude, $latitude);
+				\Cache::forever('location', $location);
 			}
 
-			return new \TLGT\models\Location($lookup, $longitude, $latitude);
+			else {
+				$location = new \TLGT\models\Location($lookup, null, null);
+			}
+
+			return $location;
 
 		}
 
