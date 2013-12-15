@@ -59,7 +59,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
-	grunt.loadNpmTasks('grunt-notify');
+	//grunt.loadNpmTasks('grunt-notify');
 
 	grunt.registerTask('build', ['copy', 'minifyCSS', 'minifyImg', 'copyFont']);
 	grunt.registerTask('minifyCSS', ['cssmin']);

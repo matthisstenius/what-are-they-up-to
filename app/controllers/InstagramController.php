@@ -18,7 +18,13 @@ class InstagramController extends BaseController {
 		$this->instagramWebservice = $instagramWebservice;
 	}
 
-	public function getInstagrams($search) {
+	public function getInstagrams() {
+		$search = Input::get('search');
+
+		if (!$this->search->isTermValid($search)) {
+			return Response::json(['error' => 'Please enter a search'], 400);
+		}
+		
 		if (Cache::has('instagrams')) {
 			$instagrams = Cache::get('instagrams');
 		}

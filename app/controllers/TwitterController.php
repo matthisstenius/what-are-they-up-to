@@ -12,20 +12,29 @@ class TwitterController extends BaseController {
 	private $twitterWebservice;
 
 	/**
+	 * @var TLGT\webservices\LocationWebservice
+	 */
+	private $locationWebservice;
+
+	/**
 	 * @var ILocationRepository
 	 */
 	private $locationRepository;
 
 	public function __construct(TLGT\models\Search $search,
 								TLGT\webservices\TwitterWebservice $twitterWebservice,
+								TLGT\webservices\LocationWebservice $locationWebservice,
 								EloquentLocationRepository $locationRepository) {
 		
 		$this->search = $search;
 		$this->twitterWebservice = $twitterWebservice;
+		$this->locationWebservice = $locationWebservice;
 		$this->locationRepository = $locationRepository;
 	}
 
-	public function getTweets($search) {
+	public function getTweets() {
+		$search = Input::get('search');
+		
 		if (!$this->search->isTermValid($search)) {
 			return Response::json(['error' => 'Please enter a search'], 400);
 		}
