@@ -24,7 +24,7 @@ class InstagramController extends BaseController {
 		if (!$this->search->isTermValid($search)) {
 			return Response::json(['error' => 'Please enter a search'], 400);
 		}
-		
+
 		if (Cache::has('instagrams')) {
 			$instagrams = Cache::get('instagrams');
 		}

@@ -34,24 +34,27 @@ class TwitterController extends BaseController {
 
 	public function getTweets() {
 		$search = Input::get('search');
+		$longitude = Input::get('longitude');
+		$latitude = Input::get('latitude');
 		
 		if (!$this->search->isTermValid($search)) {
 			return Response::json(['error' => 'Please enter a search'], 400);
 		}
 
-		if ($cachedLocation = $this->locationRepository->getLocation($search)) {
-			$location = new TLGT\models\Location($cachedLocation->place, 
-												$cachedLocation->latitude,
-												$cachedLocation->longitude);
-		}
+		// if ($cachedLocation = $this->locationRepository->getLocation($search)) {
+		// 	$location = new TLGT\models\Location($cachedLocation->place, 
+		// 										$cachedLocation->latitude,
+		// 										$cachedLocation->longitude);
+		// }
 
-		else {
-			$location = $this->locationWebservice->getCoordinates($search);
+		// else {
+		// 	$location = $this->locationWebservice->getCoordinates($search);
 
-			if ($location->coordinatesExist()) {
-				$this->locationRepository->addLocation($location);
-			}
-		}
+		// 	if ($location->coordinatesExist()) {
+		// 		$this->locationRepository->addLocation($location);
+		// 	}
+		// }
+		$location = new TLGT\models\Location($search, $longitude, $latitude);
 
 		$tweets = $this->twitterWebservice->getTweetsByLocation($location);
 
