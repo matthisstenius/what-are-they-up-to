@@ -22,7 +22,7 @@ class InstagramWebservice extends RequestWrapper {
 			$instagrams = [];
 
 			foreach ($fromJson['data'] as $key => $value) {
-				if ($key > 6) {
+				if ($key >= 9) {
 					break;
 				}
 

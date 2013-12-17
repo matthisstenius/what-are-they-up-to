@@ -65,8 +65,8 @@ TLGT.renderTweets = function(tweets) {
 
 	if (tweets.length > 0) {
 		for (var i = 0; i < tweets.length; i++) {
-			output += '<div class="tweet">'
-						+ '<p>' + tweets[i].name + '</p>'
+			output += '<div class="tweet col-1-2">'
+						+ '<h3>' + tweets[i].name + ' says:</h3>'
 						+ '<p>' + tweets[i].text + '</p>'
 						+ '<p>' + tweets[i].created + '</p>'
 						+ '</div>';
@@ -89,8 +89,15 @@ TLGT.renderInstagrams = function(instagrams) {
 
 	if (instagrams.length > 0) {
 		for (var i = 0; i < instagrams.length; i++) {
-			output += '<div class="pad col-1-3"><div class="instagram">'
-						+ '<img src=' + instagrams[i].images.low_resolution.url + '>'
+			//var tags = '';
+
+			// for (var j = 0; j < instagrams[i].tags.length; j++) {
+			// 	tags += '<span class="tag">#' + instagrams[i].tags[j] + '</span>';
+			// }
+
+			output += '<div class="pad col-1-3"><div class="pad instagram">'
+						+ '<img class="center" src=' + instagrams[i].images.low_resolution.url + '>'
+						//+ tags 
 						+ '</div></div>';
 		}
 	}

@@ -5,7 +5,11 @@
 @import "fonts";
 @import "normalize";
 @import "simplegrid";
+
 // Vars
+$grey: #556270;
+$skyBlue: #21AABD;
+$orange: #FF6600;
 
 /* ----------------------------------------------------------------
  *  ￼ Basic
@@ -15,10 +19,15 @@
 		font-size: 16px;
 		background-color: #F8F9FA;
 		height: 100%;
+		font-family: $body;
 	}
 
 	body {
 		height: 100%;
+	}
+
+	img {
+		display: block;
 	}
 
 /* ----------------------------------------------------------------
@@ -58,6 +67,7 @@
 	a:hover {
 
 	}
+
 /* ----------------------------------------------------------------
  *  ￼ Header
  * ----------------------------------------------------------------
@@ -65,6 +75,15 @@
 	.header-wrapper {
 		background-color: white;
 		border-bottom: 1px solid #ddd;
+	}
+
+	.logo {
+		font-family: $handwriting;
+		text-align: center;
+		font-size: 1.7em;
+		color: $orange;
+		display: block;
+		text-decoration: none;
 	}
 
 /* ----------------------------------------------------------------
@@ -76,8 +95,45 @@
  *  ￼ Search
  * ----------------------------------------------------------------
 */
-	.search {
+	.search-area {
 		width: 50%;
+	}
+
+	.search-input {
+		width: 100%;
+		height: 60px;
+		border: 1px solid #ddd;
+		margin: 20px 0;
+		padding: 5px;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+/* ----------------------------------------------------------------
+ *  ￼ Instagrams
+ * ----------------------------------------------------------------
+*/
+	.instagram {
+		background-color: white;
+		border: 1px solid #ddd;
+	}
+
+	.tag {
+		display: inline-block;
+	}
+
+	.item {
+		width: 33.33%;
+	}
+
+/* ----------------------------------------------------------------
+ *  ￼ Tweets
+ * ----------------------------------------------------------------
+*/
+	.twitter-wrap {
+		background-color: $skyBlue;
 	}
 /* ----------------------------------------------------------------
  *  ￼ Footer

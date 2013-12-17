@@ -10,6 +10,7 @@
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
 
         <link rel="stylesheet" href="css/main.css">
+        <link href="http://fnt.webink.com/wfs/webink.css/?project=E169C8DB-E86B-4ADE-B0C1-2674A0B8F333&fonts=C9BCE4CA-4162-DC9F-20E1-CD15D4ED98E5:f=Hortensia,E10DC5A5-6E69-88A0-32FF-0256CBA64855:f=ProximaNovaSoft-Regular" rel="stylesheet" type="text/css"/>
         <script src="js/vendor/modernizr-2.7.1.min.js"></script>
     </head>
     <body>
@@ -19,11 +20,11 @@
 		
 		<div class="header-wrapper">
 			<header class="header grid pad">
-				<a href="/" class="logo">What Are Pepole Up To</a>
+				<a href="/" class="logo">What Are They Up To</a>
 			</header>
 		</div>
 
-		<div class="container grid pad">
+		<div class="container">
 			@yield('content')
 		</div>
 		
@@ -34,7 +35,6 @@
 		</div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
         <script src="js/main.js"></script>
     </body>
