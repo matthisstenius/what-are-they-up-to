@@ -44,6 +44,9 @@ class TwitterWebservice extends RequestWrapper {
 				$tweets[] = new \TLGT\models\Tweet($tweet['created_at'], $tweet['text'], $tweet['user']['name']);
 			}
 
+			// Cache tweets for one minute
+			\Cache::add($location->getPlace() . 'tweets', $tweets, 1);
+
 			return $tweets;
 		}
 

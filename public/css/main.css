@@ -442,7 +442,7 @@ body {
   width: 58.33%; }
 
 /* ----------------------------------------------------------------
- *  ￼ Basic
+ *  ￼ General
  * ----------------------------------------------------------------
 */
 html {
@@ -451,11 +451,24 @@ html {
   height: 100%;
   font-family: ProximaNovaSoft-Regular, sans-serif; }
 
-body {
+body, .container {
   height: 100%; }
 
 img {
   display: block; }
+
+.instagram-loading, .twitter-loading {
+  width: 50%; }
+
+.loading {
+  background: url("../img/ajax-loader.gif") no-repeat;
+  display: inline-block;
+  width: 16px;
+  height: 11px; }
+
+.output-message {
+  text-align: center;
+  font-family: Hortensia, sans-serif; }
 
 /* ----------------------------------------------------------------
  *  ￼ 	Headings
@@ -493,9 +506,13 @@ h1 {
   text-decoration: none; }
 
 /* ----------------------------------------------------------------
- *  ￼ Nav
+ *  ￼ Main
  * ----------------------------------------------------------------
 */
+.intro {
+  text-align: center;
+  font-family: Hortensia, sans-serif; }
+
 /* ----------------------------------------------------------------
  *  ￼ Search
  * ----------------------------------------------------------------
@@ -532,6 +549,20 @@ h1 {
 */
 .twitter-wrap {
   background-color: #21aabd; }
+
+.tweet {
+  color: #f8f9fa; }
+
+/* ----------------------------------------------------------------
+ *  ￼ Venues
+ * ----------------------------------------------------------------
+*/
+.venues-area {
+  height: 100%;
+  max-height: 650px; }
+
+#map-canvas {
+  height: 100%; }
 
 /* ----------------------------------------------------------------
  *  ￼ Footer

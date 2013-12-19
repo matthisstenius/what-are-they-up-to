@@ -10,9 +10,10 @@
 $grey: #556270;
 $skyBlue: #21AABD;
 $orange: #FF6600;
+$eggShell: #F8F9FA;
 
 /* ----------------------------------------------------------------
- *  ￼ Basic
+ *  ￼ General
  * ----------------------------------------------------------------
 */
 	html {
@@ -22,12 +23,28 @@ $orange: #FF6600;
 		font-family: $body;
 	}
 
-	body {
+	body, .container {
 		height: 100%;
 	}
 
 	img {
 		display: block;
+	}
+	
+	.instagram-loading, .twitter-loading {
+		width: 50%;
+	}
+
+	.loading {
+		background: url('../img/ajax-loader.gif') no-repeat;
+		display: inline-block;
+		width: 16px;
+		height: 11px;
+	}
+
+	.output-message {
+		text-align: center;
+		font-family: $handwriting;
 	}
 
 /* ----------------------------------------------------------------
@@ -87,9 +104,13 @@ $orange: #FF6600;
 	}
 
 /* ----------------------------------------------------------------
- *  ￼ Nav
+ *  ￼ Main
  * ----------------------------------------------------------------
 */
+	.intro {
+		text-align: center;
+		font-family: $handwriting;
+	}
 
 /* ----------------------------------------------------------------
  *  ￼ Search
@@ -134,6 +155,23 @@ $orange: #FF6600;
 */
 	.twitter-wrap {
 		background-color: $skyBlue;
+	}
+
+	.tweet {
+		color: $eggShell;
+	}
+
+/* ----------------------------------------------------------------
+ *  ￼ Venues
+ * ----------------------------------------------------------------
+*/
+	.venues-area {
+		height: 100%;
+		max-height: 650px;
+	}
+
+	#map-canvas {
+		height: 100%;
 	}
 /* ----------------------------------------------------------------
  *  ￼ Footer

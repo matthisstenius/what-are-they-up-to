@@ -18,3 +18,4 @@ Route::post('/image/callback', 'CallbackController@imageCallback');
 
 Route::post('/tweets', 'TwitterController@getTweets');
 Route::post('/instagrams', 'InstagramController@getInstagrams');
+Route::post('/venues', 'FoursquareController@getVenues');

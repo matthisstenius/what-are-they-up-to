@@ -10,6 +10,8 @@ TLGT.nodes = {
 	twitterArea: $('.twitterArea'),
 	instagramLoading: $('.instagram-loading'),
 	twitterLoading: $('.twitter-loading'),
+	venuesLoading: $('.venues-loading'),
+	venuesArea: $('.venues-area'),
 	instagramArea: $('.instagramArea')
 };
 
@@ -30,6 +32,26 @@ TLGT.getTweets = function(request) {
 	xhr.done(function(tweets) {
 		TLGT.nodes.twitterLoading.addClass('hidden');
 		TLGT.renderTweets(tweets);
+	});
+
+	xhr.fail(function(err) {
+		console.log(err);
+	});
+};
+
+TLGT.getVenues = function(request) {
+	this.nodes.venuesLoading.removeClass('hidden');
+
+	var xhr = $.ajax({
+		url: 'venues',
+		type: 'POST',
+		data: request,
+		accepts: 'json'
+	});
+
+	xhr.done(function(venues) {
+		TLGT.nodes.venuesLoading.addClass('hidden');
+		TLGT.renderVenues(venues);
 	});
 
 	xhr.fail(function(err) {
@@ -64,6 +86,8 @@ TLGT.renderTweets = function(tweets) {
 	twitterArea.empty();
 
 	if (tweets.length > 0) {
+		output += '<h2 class="output-message">This is what they are talking about...</h2>';
+
 		for (var i = 0; i < tweets.length; i++) {
 			output += '<div class="tweet col-1-2">'
 						+ '<h3>' + tweets[i].name + ' says:</h3>'
@@ -75,10 +99,55 @@ TLGT.renderTweets = function(tweets) {
 	}
 	
 	else {
-		output = 'No tweets';
+		output = '<h2 class="output-message">We could not find any tweets for your request.</h2>';
 	}
 
 	twitterArea.append(output);
+};
+
+TLGT.renderVenues = function(venues) {
+	this.nodes.venuesArea.empty();
+
+	if (venues.length > 0) {
+		this.nodes.venuesArea.append('<div id="map-canvas"></div>');
+
+		var mapOptions = {
+			center: new google.maps.LatLng(venues[0].latitude, venues[0].longitude),
+			zoom: 13
+		};
+
+		var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+		for (var i = 0, max = venues.length; i < max; i++) {
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(venues[i].latitude, venues[i].longitude),
+				title: venues[i].name,
+				map: map
+			});
+
+			var infoWindowMessage = '<div>'
+									+ '<h2>' + venues[i].name + '</h2>'
+									+ '<p>Checkins: ' + venues[i].checkins + '</p>'
+									+ '<p>People here now: ' + venues[i].hereNow + '</p>';
+
+			var infowindow = new google.maps.InfoWindow({
+				content: infoWindowMessage
+			});
+
+			(function(marker, infowindow) {
+				google.maps.event.addListener(marker, 'click', function() {
+	    			infowindow.open(map,marker);
+	  			});	
+			})(marker, infowindow);
+
+			marker.setMap(map);
+		}	
+	}
+
+	else {
+		this.nodes.venuesArea.prepend('<h2 class="output-message">No venues could be found</h2>');
+	}
+	
 };
 
 TLGT.renderInstagrams = function(instagrams) {
@@ -134,6 +203,7 @@ TLGT.autocomplete = function() {
 
 		TLGT.getTweets(request);
 		TLGT.getInstagrams(request);
+		TLGT.getVenues(request);
 	});
 };
 

@@ -30,7 +30,7 @@ class InstagramWebservice extends RequestWrapper {
 			}
 
 			//$this->startSubsceiption($place);
-			//\Cache::add('instagrams', $instagrams, 2);
+			\Cache::add($place . 'instagrams', $instagrams, 1);
 
 			return $instagrams;
 		}

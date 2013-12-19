@@ -41,22 +41,14 @@ class TwitterController extends BaseController {
 			return Response::json(['error' => 'Please enter a search'], 400);
 		}
 
-		// if ($cachedLocation = $this->locationRepository->getLocation($search)) {
-		// 	$location = new TLGT\models\Location($cachedLocation->place, 
-		// 										$cachedLocation->latitude,
-		// 										$cachedLocation->longitude);
-		// }
+		if (Cache::has($search . 'tweets')) {
+			$tweets = Cache::get($search . 'tweets');
+		}
 
-		// else {
-		// 	$location = $this->locationWebservice->getCoordinates($search);
-
-		// 	if ($location->coordinatesExist()) {
-		// 		$this->locationRepository->addLocation($location);
-		// 	}
-		// }
-		$location = new TLGT\models\Location($search, $longitude, $latitude);
-
-		$tweets = $this->twitterWebservice->getTweetsByLocation($location);
+		else {
+			$location = new TLGT\models\Location($search, $longitude, $latitude);
+			$tweets = $this->twitterWebservice->getTweetsByLocation($location);	
+		}
 
 		return Response::json($tweets);
 	}
