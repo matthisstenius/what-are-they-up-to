@@ -13,31 +13,25 @@ class InstagramWebservice extends RequestWrapper {
 	public function getImagesByTagName($place) {
 		$place = str_replace(' ', '', $place);
 
-		try {
-			$url = self::$baseUri . "tags/" . $place . "/media/recent?client_id=" . self::$clientID;
+		$url = self::$baseUri . "tags/" . $place . "/media/recent?client_id=" . self::$clientID;
 
-			$response = $this->request($url);
+		$response = $this->request($url);
 
-			$fromJson = json_decode($response, true);
-			$instagrams = [];
+		$fromJson = json_decode($response, true);
+		$instagrams = [];
 
-			foreach ($fromJson['data'] as $key => $value) {
-				if ($key >= 9) {
-					break;
-				}
-
-				$instagrams[] = new \TLGT\models\Instagram($value['images'], $value['tags']);;
+		foreach ($fromJson['data'] as $key => $value) {
+			if ($key >= 9) {
+				break;
 			}
 
-			//$this->startSubsceiption($place);
-			\Cache::add($place . 'instagrams', $instagrams, 1);
-
-			return $instagrams;
+			$instagrams[] = new \TLGT\models\Instagram($value['images'], $value['tags']);;
 		}
 
-		catch (\Exception $e) {
-			throw $e;
-		}
+		//$this->startSubsceiption($place);
+		\Cache::add($place . 'instagrams', $instagrams, 1);
+
+		return $instagrams;
 	}
 
 	/**

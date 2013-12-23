@@ -33,26 +33,21 @@ class TwitterWebservice extends RequestWrapper {
 			);
 		}
 
-		try {
-			$result = $this->request(self::$baseUri . $query, $this->getAccessToken());
 
-			$fromJson = json_decode($result, true);
+		$result = $this->request(self::$baseUri . $query, $this->getAccessToken());
 
-			$tweets = [];
+		$fromJson = json_decode($result, true);
 
-			foreach ($fromJson['statuses'] as $tweet) {
-				$tweets[] = new \TLGT\models\Tweet($tweet['created_at'], $tweet['text'], $tweet['user']['name']);
-			}
+		$tweets = [];
 
-			// Cache tweets for one minute
-			\Cache::add($location->getPlace() . 'tweets', $tweets, 1);
-
-			return $tweets;
+		foreach ($fromJson['statuses'] as $tweet) {
+			$tweets[] = new \TLGT\models\Tweet($tweet['created_at'], $tweet['text'], $tweet['user']['name']);
 		}
 
-		catch (\Exception $e) {
-			dd($e->getMessage());
-		}
+		// Cache tweets for one minute
+		\Cache::add($location->getPlace() . 'tweets', $tweets, 1);
+
+		return $tweets;
 	}
 
 	/**

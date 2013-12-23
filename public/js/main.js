@@ -12,7 +12,7 @@ TLGT.nodes = {
 	twitterLoading: $('.twitter-loading'),
 	venuesLoading: $('.venues-loading'),
 	venuesArea: $('.venues-area'),
-	instagramArea: $('.instagramArea')
+	instagramArea: $('.instagram-area')
 };
 
 TLGT.events = {
@@ -35,7 +35,9 @@ TLGT.getTweets = function(request) {
 	});
 
 	xhr.fail(function(err) {
-		console.log(err);
+		TLGT.nodes.twitterArea.empty();
+		TLGT.nodes.twitterLoading.addClass('hidden');
+		TLGT.renderError(TLGT.nodes.twitterArea, 'Ops.. An error occured while fetching tweets. Please try again later.')
 	});
 };
 
@@ -55,7 +57,9 @@ TLGT.getVenues = function(request) {
 	});
 
 	xhr.fail(function(err) {
-		console.log(err);
+		TLGT.nodes.venuesArea.empty();
+		TLGT.nodes.venuesLoading.addClass('hidden');
+		TLGT.renderError(TLGT.nodes.venuesArea, 'Ops.. An error occured while fetching venues. Please try again later.')
 	});
 };
 
@@ -75,7 +79,9 @@ TLGT.getInstagrams = function(request) {
 	});
 
 	xhr.fail(function(err) {
-		console.log(err);
+		TLGT.nodes.instagramArea.empty();
+		TLGT.nodes.instagramLoading.addClass('hidden');
+		TLGT.renderError(TLGT.nodes.instagramArea, 'Ops.. An error occured while fetching instagrams. Please try again later.')
 	});
 };
 
@@ -152,7 +158,7 @@ TLGT.renderVenues = function(venues) {
 
 TLGT.renderInstagrams = function(instagrams) {
 	var output = '',
-		instagramArea = this.nodes.instagramArea;
+		instagramArea = TLGT.nodes.instagramArea;
 
 	instagramArea.empty();
 
@@ -172,7 +178,7 @@ TLGT.renderInstagrams = function(instagrams) {
 	}
 
 	else {
-		output = 'No instagrams';
+		output = '<h2 class="output-message">We could not find any instagrams for your request.</h2>';
 	}
 
 	instagramArea.append(output);
@@ -205,6 +211,10 @@ TLGT.autocomplete = function() {
 		TLGT.getInstagrams(request);
 		TLGT.getVenues(request);
 	});
+};
+
+TLGT.renderError = function(node, message) {
+	node.html('<h3 class="error-message">' + message + '</h3>');
 };
 
 TLGT.init();

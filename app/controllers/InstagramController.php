@@ -30,9 +30,17 @@ class InstagramController extends BaseController {
 		}
 
 		else {
-			$instagrams = $this->instagramWebservice->getImagesByTagName($search);
+			try {
+				$instagrams = $this->instagramWebservice->getImagesByTagName($search);
+			}
+
+			catch (Exception $e) {
+				$instagrams = null;
+				$statusCode = 500;
+			}
+			
 		}
 
-		return Response::json($instagrams);
+		return Response::json($instagrams, $statusCode = 200);
 	}
 }

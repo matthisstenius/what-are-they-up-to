@@ -14,7 +14,7 @@
 		<p class="center instagram-loading hidden">Loading Instagrams <span class="loading"></span></p>
 	</div>
 
-	<div class="instagramArea pad grid"></div>
+	<div class="instagram-area pad grid"></div>
 	
 	<div class="twitter-wrap">
 		<div class="grid">

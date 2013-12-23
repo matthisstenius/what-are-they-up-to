@@ -47,10 +47,19 @@ class TwitterController extends BaseController {
 
 		else {
 			$location = new TLGT\models\Location($search, $longitude, $latitude);
-			$tweets = $this->twitterWebservice->getTweetsByLocation($location);	
+
+			try {
+				$tweets = $this->twitterWebservice->getTweetsByLocation($location);
+			}
+
+			catch (Exception $e) {
+				dd($e->getMessage());
+				$tweets = null;
+				$statusCode = 500;
+			}
 		}
 
-		return Response::json($tweets);
+		return Response::json($tweets, $statusCode = 200);
 	}
 
 
