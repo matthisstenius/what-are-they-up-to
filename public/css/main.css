@@ -466,7 +466,7 @@ img {
   width: 16px;
   height: 11px; }
 
-.output-message {
+.output-message, .title {
   text-align: center;
   font-family: Hortensia, sans-serif; }
 

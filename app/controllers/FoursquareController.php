@@ -20,7 +20,7 @@ class FoursquareController extends BaseController {
 		$this->foursquareWebservice = $foursquareWebservice;
 		$this->search = $search;
 	}
-	
+
 	public function getVenues() {
 		$search = Input::get('search');
 
@@ -37,7 +37,14 @@ class FoursquareController extends BaseController {
 
 		else {
 			$location = new TLGT\models\Location($search, $longitude, $latitude);
-			$venues = $this->foursquareWebservice->getTrendingVenues($location);
+			
+			try {
+				$venues = $this->foursquareWebservice->getTrendingVenues($location);
+			}
+
+			catch (Exception $e) {
+
+			}
 		}
 
 		return Response::json($venues);

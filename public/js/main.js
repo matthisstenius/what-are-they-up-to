@@ -86,7 +86,7 @@ TLGT.renderTweets = function(tweets) {
 	twitterArea.empty();
 
 	if (tweets.length > 0) {
-		output += '<h2 class="output-message">This is what they are talking about...</h2>';
+		output += '<h2 class="title">This is what they are talking about...</h2>';
 
 		for (var i = 0; i < tweets.length; i++) {
 			output += '<div class="tweet col-1-2">'
@@ -109,7 +109,7 @@ TLGT.renderVenues = function(venues) {
 	this.nodes.venuesArea.empty();
 
 	if (venues.length > 0) {
-		this.nodes.venuesArea.append('<div id="map-canvas"></div>');
+		this.nodes.venuesArea.append('<h2 class="title">Their favorite venues</h2><div id="map-canvas"></div>');
 
 		var mapOptions = {
 			center: new google.maps.LatLng(venues[0].latitude, venues[0].longitude),
