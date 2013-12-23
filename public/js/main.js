@@ -92,7 +92,7 @@ TLGT.renderTweets = function(tweets) {
 			output += '<div class="tweet col-1-2">'
 						+ '<h3>' + tweets[i].name + ' says:</h3>'
 						+ '<p>' + tweets[i].text + '</p>'
-						+ '<p>' + tweets[i].created + '</p>'
+						+ '<p>' + moment(tweets[i].created).fromNow() + '</p>'
 						+ '</div>';
 					
 		}	

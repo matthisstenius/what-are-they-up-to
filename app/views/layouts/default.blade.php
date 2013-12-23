@@ -36,6 +36,7 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+        <script type="text/javascript" src="js/momentjs.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
