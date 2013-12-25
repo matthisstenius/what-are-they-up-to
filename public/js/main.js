@@ -87,8 +87,11 @@ TLGT.getInstagrams = function(request) {
 
 TLGT.renderTweets = function(tweets) {
 	var output = '',
-		twitterArea = this.nodes.twitterArea;
+		twitterArea = this.nodes.twitterArea,
+		twitterWrap = $('.twitter-wrap');
 
+	twitterWrap.addClass('active');
+	
 	twitterArea.empty();
 
 	if (tweets.length > 0) {

@@ -31,8 +31,9 @@ $eggShell: #F8F9FA;
 		display: block;
 	}
 	
-	.instagram-loading, .twitter-loading {
-		width: 50%;
+	.instagram-loading, .twitter-loading, .venues-loading {
+		width: 20%;
+		font-size: 1.3em;
 	}
 
 	.loading {
@@ -153,7 +154,7 @@ $eggShell: #F8F9FA;
  *  ￼ Tweets
  * ----------------------------------------------------------------
 */
-	.twitter-wrap {
+	.twitter-wrap.active {
 		background-color: $skyBlue;
 	}
 

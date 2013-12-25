@@ -36,10 +36,10 @@ class Foursquare {
 	 * @param string $hereNow
 	 */
 	public function __construct($name, $latitude, $longitude, $checkins, $hereNow) {
-		$this->name = $name;
-		$this->latitude = $latitude;
-		$this->longitude = $longitude;
-		$this->checkins = $checkins;
-		$this->hereNow = $hereNow;
+		$this->name = htmlspecialchars($name);
+		$this->latitude = htmlspecialchars($latitude);
+		$this->longitude = htmlspecialchars($longitude);
+		$this->checkins = htmlspecialchars($checkins);
+		$this->hereNow = htmlspecialchars($hereNow);
 	}
 }

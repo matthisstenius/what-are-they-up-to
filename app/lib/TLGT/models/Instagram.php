@@ -18,8 +18,8 @@ class Instagram {
 	 * @param string $text
 	 */
 	public function __construct($images, $tags) {
-		$this->images = $images;
-		$this->tags = $tags;
+		$this->images = htmlspecialchars($images);
+		$this->tags = htmlspecialchars($tags);
 	}
 
 	/**

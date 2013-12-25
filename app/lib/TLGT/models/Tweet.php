@@ -10,9 +10,9 @@ class Tweet {
 	public $name;	
 
 	public function __construct($created, $text, $name) {
-		$this->created = $created;
-		$this->text = $text;
-		$this->name = $name;
+		$this->created = htmlspecialchars($created);
+		$this->text = htmlspecialchars($text);
+		$this->name = htmlspecialchars($name);
 	}
 
 	public function getCreated() {

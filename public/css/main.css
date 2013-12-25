@@ -457,8 +457,9 @@ body, .container {
 img {
   display: block; }
 
-.instagram-loading, .twitter-loading {
-  width: 50%; }
+.instagram-loading, .twitter-loading, .venues-loading {
+  width: 20%;
+  font-size: 1.3em; }
 
 .loading {
   background: url("../img/ajax-loader.gif") no-repeat;
@@ -547,7 +548,7 @@ h1 {
  *  ￼ Tweets
  * ----------------------------------------------------------------
 */
-.twitter-wrap {
+.twitter-wrap.active {
   background-color: #21aabd; }
 
 .tweet {

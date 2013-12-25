@@ -10,9 +10,9 @@ class Location {
 	private $latitude;
 
 	public function __construct($place, $longitude, $latitude) {
-		$this->place = $place;
-		$this->longitude = $longitude;
-		$this->latitude = $latitude;
+		$this->place = htmlspecialchars($place);
+		$this->longitude = htmlspecialchars($longitude);
+		$this->latitude = htmlspecialchars($latitude);
 	}
 
 	public function getPlace() {
