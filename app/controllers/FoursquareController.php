@@ -17,6 +17,7 @@ class FoursquareController extends BaseController {
 	 */
 	public function __construct(TLGT\webservices\FoursquareWebservice $foursquareWebservice,
 								TLGT\models\Search $search) {
+		
 		$this->foursquareWebservice = $foursquareWebservice;
 		$this->search = $search;
 	}

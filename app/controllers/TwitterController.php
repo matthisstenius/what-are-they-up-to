@@ -12,17 +12,15 @@ class TwitterController extends BaseController {
 	private $twitterWebservice;
 
 	/**
-	 * @var TLGT\webservices\LocationWebservice
+	 * @param TLGT\models\Search                  $search
+	 * @param TLGT\webservices\TwitterWebservice  $twitterWebservice
+	 * @param TLGT\webservices\LocationWebservice $locationWebservice
 	 */
-	private $locationWebservice;
-
 	public function __construct(TLGT\models\Search $search,
-								TLGT\webservices\TwitterWebservice $twitterWebservice,
-								TLGT\webservices\LocationWebservice $locationWebservice) {
+								TLGT\webservices\TwitterWebservice $twitterWebservice) {
 		
 		$this->search = $search;
 		$this->twitterWebservice = $twitterWebservice;
-		$this->locationWebservice = $locationWebservice;
 	}
 
 	public function getTweets() {
@@ -31,7 +29,7 @@ class TwitterController extends BaseController {
 		$latitude = Input::get('latitude');
 		
 		if (!$this->search->isTermValid($search)) {
-			return Response::json(['error' => 'Please enter a search'], 400);
+			return Response::json(['error' => 'Please enter a valid search'], 400);
 		}
 
 		if (Cache::has($search . 'tweets')) {
@@ -46,7 +44,6 @@ class TwitterController extends BaseController {
 			}
 
 			catch (Exception $e) {
-				dd($e->getMessage());
 				$tweets = null;
 				$statusCode = 500;
 			}

@@ -35,6 +35,7 @@ class FoursquareWebservice extends RequestWrapper {
 
 		// Cache venues for one minute
 		\Cache::add($location->getPlace() . 'venues', $venues, 1);
+		
 		return $venues;
 	}
 }

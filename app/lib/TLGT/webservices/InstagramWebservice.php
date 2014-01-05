@@ -28,37 +28,9 @@ class InstagramWebservice extends RequestWrapper {
 			$instagrams[] = new \TLGT\models\Instagram($value['images'], $value['tags']);;
 		}
 
-		//$this->startSubsceiption($place);
+		// Cache instagrams for one minute
 		\Cache::add($place . 'instagrams', $instagrams, 1);
 
 		return $instagrams;
-	}
-
-	/**
-	 * @todo Try this out on live server
-	 * @param  [type] $place [description]
-	 * @return [type]        [description]
-	 */
-	private function startSubsceiption($place) {
-		$query = http_build_query(
-			array(
-				'client_id' => self::$clientID,
-				'client_secret' => 'e770c71cee19447c80afd530a35091dc',
-				'object' => 'tag',
-				'aspect' => 'media',
-				'object_id' => str_replace(' ', '', $place),
-				'callback_url' => $_SERVER['HTTP_REFERER'] . '/image/callback'
-			)
-		);
-
-		$url = self::$baseUri . '/subscriptions' . $query;
-
-		try {
-			$this->request($url, null, 'POST');
-		}
-
-		catch (\Exception $e) {
-			throw $e;
-		}
 	}
 }

@@ -6,6 +6,8 @@ class RequestWrapper {
 	/**
 	 * Makes a CURL request
 	 * @param  string $url
+	 * @param string $authHeader Authentication header required for some requests
+	 * @param string $method
 	 * @return mixed response from request
 	 * @throws Exception if response is not ok
 	 */
@@ -28,7 +30,6 @@ class RequestWrapper {
 		curl_close($request);
 
 		if ($statusCode == "200") {
-
 			return $response;
 		}
 
