@@ -14,6 +14,7 @@ class FoursquareWebservice extends RequestWrapper {
 	public function getTrendingVenues(\TLGT\models\Location $location, $limit = 10) {
 		$query = http_build_query([
 			'limit' => $limit,
+			'v' => '20140112',
 			'll' => $location->getLatitude() . ',' . $location->getLongitude(),
 			'client_id' => \Config::get('foursquare.client_id'),
 			'client_secret' => \Config::get('foursquare.client_secret')

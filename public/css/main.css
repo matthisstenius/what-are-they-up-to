@@ -551,6 +551,9 @@ h1 {
 .twitter-wrap.active {
   background-color: #21aabd; }
 
+.twitter-title {
+  color: white; }
+
 .tweet {
   color: #f8f9fa; }
 
@@ -560,7 +563,8 @@ h1 {
 */
 .venues-area {
   height: 100%;
-  max-height: 650px; }
+  max-height: 650px;
+  padding: 20px 0; }
 
 #map-canvas {
   height: 100%; }

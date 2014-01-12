@@ -157,6 +157,10 @@ $eggShell: #F8F9FA;
 	.twitter-wrap.active {
 		background-color: $skyBlue;
 	}
+	
+	.twitter-title {
+		color: white;
+	}
 
 	.tweet {
 		color: $eggShell;
@@ -169,6 +173,7 @@ $eggShell: #F8F9FA;
 	.venues-area {
 		height: 100%;
 		max-height: 650px;
+		padding: 20px 0;
 	}
 
 	#map-canvas {

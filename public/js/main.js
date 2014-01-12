@@ -95,7 +95,7 @@ TLGT.renderTweets = function(tweets) {
 	twitterArea.empty();
 
 	if (tweets.length > 0) {
-		output += '<h2 class="title">This is what they are talking about...</h2>';
+		output += '<h2 class="twitter-title title">This is what they are talking about...</h2>';
 
 		for (var i = 0; i < tweets.length; i++) {
 			output += '<div class="tweet col-1-2">'
@@ -108,7 +108,7 @@ TLGT.renderTweets = function(tweets) {
 	}
 	
 	else {
-		output = '<h2 class="output-message">We could not find any tweets for your request.</h2>';
+		output = '<h2 class="output-message">Sorry. No tweets could be found for your request.</h2>';
 	}
 
 	twitterArea.append(output);
@@ -154,7 +154,7 @@ TLGT.renderVenues = function(venues) {
 	}
 
 	else {
-		this.nodes.venuesArea.prepend('<h2 class="output-message">No venues could be found</h2>');
+		this.nodes.venuesArea.prepend('<h2 class="output-message">Sorry. No venues could be found for your request</h2>');
 	}
 	
 };
@@ -167,21 +167,14 @@ TLGT.renderInstagrams = function(instagrams) {
 
 	if (instagrams.length > 0) {
 		for (var i = 0; i < instagrams.length; i++) {
-			//var tags = '';
-
-			// for (var j = 0; j < instagrams[i].tags.length; j++) {
-			// 	tags += '<span class="tag">#' + instagrams[i].tags[j] + '</span>';
-			// }
-
 			output += '<div class="pad col-1-3"><div class="pad instagram">'
 						+ '<img class="center" src=' + instagrams[i].images.low_resolution.url + '>'
-						//+ tags 
 						+ '</div></div>';
 		}
 	}
 
 	else {
-		output = '<h2 class="output-message">We could not find any instagrams for your request.</h2>';
+		output = '<h2 class="output-message">Sorry. No instagrams could be found for your request.</h2>';
 	}
 
 	instagramArea.append(output);
@@ -206,8 +199,8 @@ TLGT.autocomplete = function() {
 
 		var request = {
 			search: place.name,
-			latitude: place.geometry.location.nb,
-			longitude: place.geometry.location.ob
+			latitude: place.geometry.location.b,
+			longitude: place.geometry.location.d
 		};
 
 		TLGT.getTweets(request);
