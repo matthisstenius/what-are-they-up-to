@@ -28,8 +28,8 @@ $app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('your-machine-name'),
-
+	'local' => array('thelocalsguideto*'),
+	'production' => array('http://webbteknik.eu01.aws.af.cm*')
 ));
 
 /*

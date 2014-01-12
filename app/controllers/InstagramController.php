@@ -11,7 +11,7 @@ class InstagramController extends BaseController {
 	 */
 	private $instagramWebservice;
 
-	public function __construct(TLGT\models\SEarch $search,
+	public function __construct(TLGT\models\Search $search,
 								TLGT\webservices\InstagramWebservice $instagramWebservice) {
 
 		$this->search = $search;
@@ -20,7 +20,7 @@ class InstagramController extends BaseController {
 
 	public function getInstagrams() {
 		$search = Input::get('search');
-
+		
 		if (!$this->search->isTermValid($search)) {
 			return Response::json(array('error' => 'Please enter a search'), 400);
 		}
