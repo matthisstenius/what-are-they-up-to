@@ -38,7 +38,7 @@ class TwitterWebservice extends RequestWrapper {
 
 		$fromJson = json_decode($result, true);
 
-		$tweets = [];
+		$tweets = array();
 
 		foreach ($fromJson['statuses'] as $tweet) {
 			$tweets[] = new \TLGT\models\Tweet($tweet['created_at'], $tweet['text'], $tweet['user']['name']);

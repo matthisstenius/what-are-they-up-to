@@ -18,7 +18,7 @@ class InstagramWebservice extends RequestWrapper {
 		$response = $this->request($url);
 
 		$fromJson = json_decode($response, true);
-		$instagrams = [];
+		$instagrams = array();
 
 		foreach ($fromJson['data'] as $key => $value) {
 			if ($key >= 9) {

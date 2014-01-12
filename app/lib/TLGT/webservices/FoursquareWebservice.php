@@ -12,19 +12,19 @@ class FoursquareWebservice extends RequestWrapper {
 	 * @return array of \TLGT\models\Foursquare
 	 */
 	public function getTrendingVenues(\TLGT\models\Location $location, $limit = 10) {
-		$query = http_build_query([
+		$query = http_build_query(array(
 			'limit' => $limit,
 			'v' => '20140112',
 			'll' => $location->getLatitude() . ',' . $location->getLongitude(),
 			'client_id' => \Config::get('foursquare.client_id'),
 			'client_secret' => \Config::get('foursquare.client_secret')
-		]);
+		));
 
 		$url = self::$baseUri . $query;
 		$response = $this->request($url);
 		
 		$fromJson = json_decode($response, true);
-		$venues = [];
+		$venues = array();
 
 		foreach ($fromJson['response']['venues'] as $key => $venue) {
 			$venues[] = new \TLGT\models\Foursquare($venue['name'],

@@ -29,7 +29,7 @@ class TwitterController extends BaseController {
 		$latitude = Input::get('latitude');
 		
 		if (!$this->search->isTermValid($search)) {
-			return Response::json(['error' => 'Please enter a valid search'], 400);
+			return Response::json(array('error' => 'Please enter a valid search'), 400);
 		}
 
 		if (Cache::has($search . 'tweets')) {
