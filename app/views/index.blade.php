@@ -3,11 +3,12 @@
 @section('content')
 	<div class="grid">
 		<div class="search-area center">
+			<input id="token" type="hidden" name="_token" value={{csrf_token()}}>
 			<input type="text" name="term" class="search-input" id="search-term">
 			<input id="search" class="hidden" type="submit" value="Send">
 		</div>
 
-		<h1 class="intro">Enter a location above and see what they are up to.</h1>
+		<h1 class="intro">Enter a location above to see what they are up to.</h1>
 	</div>
 	
 	<div class="grid">

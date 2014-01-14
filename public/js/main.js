@@ -12,7 +12,8 @@ TLGT.nodes = {
 	twitterLoading: $('.twitter-loading'),
 	venuesLoading: $('.venues-loading'),
 	venuesArea: $('.venues-area'),
-	instagramArea: $('.instagram-area')
+	instagramArea: $('.instagram-area'),
+	token: $('#token')
 };
 
 TLGT.events = {
@@ -108,7 +109,7 @@ TLGT.renderTweets = function(tweets) {
 	}
 	
 	else {
-		output = '<h2 class="output-message">Sorry. No tweets could be found for your request.</h2>';
+		output = '<h2 class="output-message twitter-title">Sorry. No tweets could be found for your request.</h2>';
 	}
 
 	twitterArea.append(output);
@@ -200,7 +201,8 @@ TLGT.autocomplete = function() {
 		var request = {
 			search: place.name,
 			latitude: place.geometry.location.b,
-			longitude: place.geometry.location.d
+			longitude: place.geometry.location.d,
+			_token: TLGT.nodes.token[0].value
 		};
 
 		TLGT.getTweets(request);

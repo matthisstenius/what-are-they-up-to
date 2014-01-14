@@ -555,7 +555,8 @@ h1 {
   color: white; }
 
 .tweet {
-  color: #f8f9fa; }
+  color: #f8f9fa;
+  min-height: 150px; }
 
 /* ----------------------------------------------------------------
  *  ￼ Venues

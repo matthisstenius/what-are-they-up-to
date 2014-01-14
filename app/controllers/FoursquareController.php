@@ -20,6 +20,8 @@ class FoursquareController extends BaseController {
 		
 		$this->foursquareWebservice = $foursquareWebservice;
 		$this->search = $search;
+
+		$this->beforeFilter('csrf', array('only' => 'post'));
 	}
 
 	public function getVenues() {

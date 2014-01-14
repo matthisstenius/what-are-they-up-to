@@ -16,11 +16,13 @@ class InstagramController extends BaseController {
 
 		$this->search = $search;
 		$this->instagramWebservice = $instagramWebservice;
+
+		$this->beforeFilter('csrf', array('only' => 'post'));
 	}
 
 	public function getInstagrams() {
 		$search = Input::get('search');
-		
+
 		if (!$this->search->isTermValid($search)) {
 			return Response::json(array('error' => 'Please enter a search'), 400);
 		}

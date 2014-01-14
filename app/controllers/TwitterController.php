@@ -21,6 +21,8 @@ class TwitterController extends BaseController {
 		
 		$this->search = $search;
 		$this->twitterWebservice = $twitterWebservice;
+
+		$this->beforeFilter('csrf', array('only' => 'post'));
 	}
 
 	public function getTweets() {
