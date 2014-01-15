@@ -3,8 +3,15 @@ module.exports = function(grunt) {
 		copy: {
 			build: {
 				expand: true,
-				src: ['app/**', 'public/**', '!public/css/sass/**', '!public/js/site.js', 'vendor/**', 'bootstrap/**', 'server.php'],
-				dest: 'build/'
+				files: [
+					{
+						src: [
+							'app/**', 'public/**', '!public/css/sass/**', '!public/js/**', 
+							'vendor/**', 'bootstrap/**', 'server.php', '.htaccess', 'artisan'
+						], 
+						dest: 'build/', dot: true
+					}
+				]
 			}
 		},
 
@@ -57,7 +64,11 @@ module.exports = function(grunt) {
 
 		clean: {
 			target: {
-				src: ['public/js/site.js', 'build/public/js/main.js']
+				src: ['public/js/site.js']
+			},
+
+			build: {
+				src: 'build/**'
 			}
 		},
 
@@ -82,7 +93,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 
-	grunt.registerTask('build', ['copy', 'cssmin', 'imagemin', 'concat', 'uglify', 'clean']);
+	grunt.registerTask('build', ['copy', 'cssmin', 'imagemin', 'concat', 'uglify', 'clean:target']);
 
 	grunt.registerTask('default', 'Watches the project for changes', ['watch']);
 };
