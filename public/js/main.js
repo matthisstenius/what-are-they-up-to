@@ -38,7 +38,7 @@ TLGT.getTweets = function(request) {
 	xhr.fail(function(err) {
 		TLGT.nodes.twitterArea.empty();
 		TLGT.nodes.twitterLoading.addClass('hidden');
-		TLGT.renderError(TLGT.nodes.twitterArea, 'Ops.. An error occured while fetching tweets. Please try again later.')
+		TLGT.renderError(TLGT.nodes.twitterArea, 'Ops.. An error occured while fetching tweets. Please try again later.');
 	});
 };
 
@@ -60,7 +60,7 @@ TLGT.getVenues = function(request) {
 	xhr.fail(function(err) {
 		TLGT.nodes.venuesArea.empty();
 		TLGT.nodes.venuesLoading.addClass('hidden');
-		TLGT.renderError(TLGT.nodes.venuesArea, 'Ops.. An error occured while fetching venues. Please try again later.')
+		TLGT.renderError(TLGT.nodes.venuesArea, 'Ops.. An error occured while fetching venues. Please try again later.');
 	});
 };
 
@@ -82,7 +82,7 @@ TLGT.getInstagrams = function(request) {
 	xhr.fail(function(err) {
 		TLGT.nodes.instagramArea.empty();
 		TLGT.nodes.instagramLoading.addClass('hidden');
-		TLGT.renderError(TLGT.nodes.instagramArea, 'Ops.. An error occured while fetching instagrams. Please try again later.')
+		TLGT.renderError(TLGT.nodes.instagramArea, 'Ops.. An error occured while fetching instagrams. Please try again later.');
 	});
 };
 

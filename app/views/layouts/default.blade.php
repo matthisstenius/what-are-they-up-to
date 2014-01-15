@@ -11,7 +11,6 @@
 
         <link rel="stylesheet" href="css/main.css">
         <link href="http://fnt.webink.com/wfs/webink.css/?project=E169C8DB-E86B-4ADE-B0C1-2674A0B8F333&fonts=C9BCE4CA-4162-DC9F-20E1-CD15D4ED98E5:f=Hortensia,E10DC5A5-6E69-88A0-32FF-0256CBA64855:f=ProximaNovaSoft-Regular" rel="stylesheet" type="text/css"/>
-        <script src="js/vendor/modernizr-2.7.1.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -33,10 +32,16 @@
 				
 			</footer>
 		</div>
-
+        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
-        <script type="text/javascript" src="js/momentjs.js"></script>
-        <script src="js/main.js"></script>
+        
+        @if($app->environment() == 'local')
+            <script type="text/javascript" src="js/vendor/momentjs.js"></script>
+            <script src="js/main.js"></script>
+        @else
+            <script src="js/main.min.js"></script>
+        @endif
+
     </body>
 </html>

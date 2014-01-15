@@ -3,16 +3,8 @@ module.exports = function(grunt) {
 		copy: {
 			build: {
 				expand: true,
-				cwd: 'src',
-				src: ['**', '!public/**', '../index.php'],
-				dest: 'build/php-projekt/src'
-			},
-
-			copyFont: {
-				expand: true,
-				cwd: 'src',
-				src: ['/font/**'],
-				dest: 'build/php-projekt/src/public/'
+				src: ['app/**', 'public/**', '!public/css/sass/**', '!public/js/site.js', 'vendor/**', 'bootstrap/**', 'server.php'],
+				dest: 'build/'
 			}
 		},
 
@@ -27,7 +19,7 @@ module.exports = function(grunt) {
 		cssmin: {
 			minifyCSS: {
 				files: {
-					'build/php-projekt/src/public/css/main.css': 'src/public/css/*.css'
+					'build/public/css/main.css': 'public/css/*.css'
 				}
 			}
 		},
@@ -38,8 +30,34 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: 'src',
 					src: ['public/img/*.{png,jpg,gif}'],
-					dest: 'build/php-projekt/src/public/img'
+					dest: 'build/public/img'
 				}]
+			}
+		},
+
+		jshint: {
+			all: {
+				src: ['public/js/**.js']
+			}
+		},
+
+		concat: {
+			dist: {
+				src: ['public/js/main.js', 'public/js/vendor/momentjs.js'],
+				dest: 'public/js/site.js'
+			}
+		},
+
+		uglify: {
+			dist: {
+				src: ['public/js/site.js'],
+				dest: 'build/public/js/main.min.js'
+			}
+		},
+
+		clean: {
+			target: {
+				src: ['public/js/site.js', 'build/public/js/main.js']
 			}
 		},
 
@@ -59,12 +77,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
-	//grunt.loadNpmTasks('grunt-notify');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 
-	grunt.registerTask('build', ['copy', 'minifyCSS', 'minifyImg', 'copyFont']);
-	grunt.registerTask('minifyCSS', ['cssmin']);
-	grunt.registerTask('minifyImg', ['imagemin']);
-	grunt.registerTask('compileSass', ['sass']);
-	grunt.registerTask('copyFont', ['copy']);
+	grunt.registerTask('build', ['copy', 'cssmin', 'imagemin', 'concat', 'uglify', 'clean']);
+
 	grunt.registerTask('default', 'Watches the project for changes', ['watch']);
 };
