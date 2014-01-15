@@ -16,10 +16,11 @@ TLGT.nodes = {
 	token: $('#token')
 };
 
-TLGT.events = {
-	
-};
-
+/**
+ * Requests tweets
+ * @param  object request
+ * @return void
+ */
 TLGT.getTweets = function(request) {
 	this.nodes.twitterLoading.removeClass('hidden');
 
@@ -42,6 +43,11 @@ TLGT.getTweets = function(request) {
 	});
 };
 
+/**
+ * Requests venues
+ * @param  object request
+ * @return void
+ */
 TLGT.getVenues = function(request) {
 	this.nodes.venuesLoading.removeClass('hidden');
 
@@ -64,6 +70,11 @@ TLGT.getVenues = function(request) {
 	});
 };
 
+/**
+ * Requests instagrams
+ * @param  object request
+ * @return void
+ */
 TLGT.getInstagrams = function(request) {
 	this.nodes.instagramLoading.removeClass('hidden');
 
@@ -86,6 +97,11 @@ TLGT.getInstagrams = function(request) {
 	});
 };
 
+/**
+ * Renders tweet on page
+ * @param  array tweets
+ * @return void
+ */
 TLGT.renderTweets = function(tweets) {
 	var output = '',
 		twitterArea = this.nodes.twitterArea,
@@ -115,6 +131,11 @@ TLGT.renderTweets = function(tweets) {
 	twitterArea.append(output);
 };
 
+/**
+ * Renders venues onto page
+ * @param  array venues
+ * @return void
+ */
 TLGT.renderVenues = function(venues) {
 	this.nodes.venuesArea.empty();
 
