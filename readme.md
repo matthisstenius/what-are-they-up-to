@@ -48,6 +48,6 @@ Tråkigt nog har jag lagt mig på betygsnivå tre eftersom jag inte har haft så
 
 [Redovisningsfilm](https://dl.dropboxusercontent.com/u/2388401/redovisning-webbteknik-II.mov)
 [Länk till projektet](http://webbteknik.eu01.aws.af.cm/)
-
+[Schematisk bild](https://dl.dropboxusercontent.com/u/2388401/chart.pdf)
 
 
