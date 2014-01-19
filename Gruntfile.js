@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 		cssmin: {
 			minifyCSS: {
 				files: {
-					'build/public/css/main.css': 'public/css/*.css'
+					'build/public/css/main<%= grunt.template.today("yyyy-mm-dd")%>.css': 'public/css/*.css'
 				}
 			}
 		},
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 		uglify: {
 			dist: {
 				src: ['public/js/site.js'],
-				dest: 'build/public/js/main.min.js'
+				dest: 'build/public/js/main<%= grunt.template.today("yyyy-mm-dd")%>.min.js'
 			}
 		},
 
@@ -75,7 +75,7 @@ module.exports = function(grunt) {
 		watch: {
 			stylesheets: {
 				files: ['public/css/**/*.scss'],
-				tasks: ['compileSass'],
+				tasks: ['sass'],
 				options: {
 					livereload: true
 				}

@@ -221,8 +221,8 @@ TLGT.autocomplete = function() {
 
 		var request = {
 			search: place.name,
-			latitude: place.geometry.location.b,
-			longitude: place.geometry.location.d,
+			latitude: place.geometry.location.d,
+			longitude: place.geometry.location.e,
 			_token: TLGT.nodes.token[0].value
 		};
 
